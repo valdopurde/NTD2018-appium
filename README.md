@@ -44,7 +44,10 @@ Tools - AVD Manager
 Create a virtual device
 
 Install Maven
-Download from face
+Download: http://www-eu.apache.org/dist/maven/maven-3/
+Set Maven
+export PATH=/opt/apache-maven-3.5.3/bin:$PATH
+
 
 
 
