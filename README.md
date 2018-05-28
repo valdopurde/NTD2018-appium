@@ -18,6 +18,10 @@ brew update
 brew tap caskroom/versions
 brew cask install java8
 
+Install Appium
+npm install -g appium@1.7.2
+
+
 Install text editor (example: atom)
 brew cask install atom
 
@@ -45,11 +49,12 @@ Create a virtual device
 
 Install Maven
 Download: http://www-eu.apache.org/dist/maven/maven-3/
-Set Maven
-export PATH=/opt/apache-maven-3.5.3/bin:$PATH
+atom .profile
+To the ".profile" file add:
+export PATH=/opt/apache-maven-3.5.3/bin:$PATH;
 
-
-
+Launch command:
+PLATFORM_NAME="android" APPIUM_VERSION="1.7.2" NAME="MyReaction" PLATFORM_VERSION="4.4" DEVICE="Android Emulator" APP="/Developing/Android/SignedApp/MyReaction.apk" mvn clean install
 
 
 Clone git Repository containing test
