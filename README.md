@@ -3,7 +3,9 @@
 * Install Command line tools, Homebrew, Git
 * Install npm + nodejs + appium
 * Install Java and set JAVA_HOME
-* Install Android Studios, set ANDROID_HOME and create virtual device (API 23)
+* Install Android Studios, set ANDROID_HOME
+* Install Android SDK - Android 6, API level 23
+* Create virtual device (Android Studio - Tools - AVD Manager - Android 6 API 23)
 * Install Maven
 * Clone Test repository https://github.com/valdopurde/NTD2018-appium
 * Launch appium 1.7
@@ -11,6 +13,19 @@
 ```
 PLATFORM_NAME="android" APPIUM_VERSION="1.7.2" NAME="MyReaction" PLATFORM_VERSION="4.4" DEVICE="Android Emulator" APP="/Developing/Android/SignedApp/MyReaction.apk" mvn clean install
 ```
+## Inspecting Elements with Appium inspector (Appium Desktop app)
+
+First launch, when App is not istalled:
+Desired Capabilities
+* deviceName - Android Emulator
+* platformName - Android
+* app - app file path
+* automationName - UiAutomator2
+* noReset - True
+
+Launching when app is installed:
+Add capability:
+* appWaitActivity - com.denyszaiats.myreactions.StartActivity
 
 ## Detailed guide:
 
@@ -86,6 +101,8 @@ git clone https://github.com/valdopurde/NTD2018-appium
 ```
 Time to check how it all works
 * Launch appium in Terminal #1
+* Launch Android Studio
+* Launch Virtual Android device
 * Launch test in Terminal #2
 
 ### Launch command:
@@ -96,3 +113,6 @@ PLATFORM_NAME="android" APPIUM_VERSION="1.7.2" NAME="MyReaction" PLATFORM_VERSIO
 ### Error debubging:
 Lock/Unlock issue:
 * Uninstall Unlock app could work.
+App not found:
+Add a path to HomePageTest
+* capabilities.setCapability("app", new File("/Users/ktriebstok/NTD2018-appium/app/MyReaction.apk").getAbsolutePath());
