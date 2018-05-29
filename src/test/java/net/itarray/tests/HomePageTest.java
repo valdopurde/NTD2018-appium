@@ -18,6 +18,7 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 import java.io.File;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.Map;
 
 /**
  * Created by zad on 05/06/17.
@@ -33,9 +34,11 @@ public class HomePageTest {
 
     @Before
     public void setUp() throws MalformedURLException {
+        Map<String, String> env = System.getenv();
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability("platform", "Android");
         capabilities.setCapability("version", "6.0");
+        capabilities.setCapability("app", env.get("APP"));
         capabilities.setCapability("deviceName", "emulator-5554"); // adb devices
         driver = new AndroidDriver(new URL("http://0.0.0.0:4723/wd/hub"), capabilities);
         driverUtils = new DriverUtils(driver);
