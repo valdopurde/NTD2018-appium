@@ -1,7 +1,8 @@
 # Mac Android Testing setup
 
 * Install Command line tools, Homebrew, Git
-* Install npm + nodejs + appium
+* Install npm + nodejs + appium 1.7.x (Do not upgrade to 1.8)
+* Install Appium Desktop app 1.5! (Do not download the latest v1.6.1, due to running Appium 1.8)
 * Install Java and set JAVA_HOME
 * Install Android Studios, set ANDROID_HOME
 * Install Android SDK - Android 6, API level 23
@@ -53,6 +54,9 @@ brew cask install java8
 ```
 npm install -g appium@1.7.2
 ```
+### Install Appium Desktop app 1.5!
+https://github.com/appium/appium-desktop/releases
+
 ### Install text editor (example: atom)
 ```
 brew cask install atom
