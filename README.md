@@ -20,7 +20,7 @@ APP="/Users/{user}/Documents/GitHub/NTD2018-appium/app/MyReaction.apk" mvn clean
  * Install npm + nodejs + appium
  * Download jdk and set JAVA_HOME environment variable to jdk path
  * Download and install android sdk (which means android studio) and set ANDROID_HOME variable to android sdk path (guess it will be shown when installing android studio)
- * Open android sdk and install some packages for api level >= 24
+ * Open android sdk and install some packages for api level >= 23
 
 ## Detailed guide for Mac:
 
