@@ -8,24 +8,11 @@
 * Create virtual device (Android Studio - Tools - AVD Manager - Android 6 API 23)
 * Install Maven
 * Clone Test repository https://github.com/valdopurde/NTD2018-appium
-* Launch appium 1.7
+* Launch appium
 * Launch test
 ```
-PLATFORM_NAME="android" APPIUM_VERSION="1.7.2" NAME="MyReaction" PLATFORM_VERSION="4.4" DEVICE="Android Emulator" APP="/Developing/Android/SignedApp/MyReaction.apk" mvn clean install
+APP="/Users/{user}/Documents/GitHub/NTD2018-appium/app/MyReaction.apk" mvn clean test
 ```
-## Inspecting Elements with Appium inspector (Appium Desktop app)
-
-First launch, when App is not istalled:
-Desired Capabilities
-* deviceName - Android Emulator
-* platformName - Android
-* app - app file path
-* automationName - UiAutomator2
-* noReset - True
-
-Launching when app is installed:
-Add capability:
-* appWaitActivity - com.denyszaiats.myreactions.StartActivity
 
 ## Detailed guide:
 
@@ -72,9 +59,10 @@ Check by typing:
 $JAVA_HOME/bin/java -version
 ```
 ### Install Android Studio
-Install all tools & SDK's recommended by the Studio.
-Open Android Studio SDK manager
-Copy Android SDK location (for setting the ANDROID_HOME)
+* Install all tools & SDK's recommended by the Studio.
+* Open Android Studio SDK manager
+* Install Android 6.0 API level 23
+* Copy Android SDK location (for setting the ANDROID_HOME)
 
 ### Set ANDROID_HOME
 ```
@@ -85,7 +73,7 @@ To the ".profile" file add:
 
 ### Create Virtual Android device
 Tools - AVD Manager
-Create a virtual device API level 23 or lower
+Create a virtual device API level 23
 
 ### Install Maven
 Download: http://www-eu.apache.org/dist/maven/maven-3/
@@ -100,19 +88,34 @@ To the ".profile" file add:
 git clone https://github.com/valdopurde/NTD2018-appium
 ```
 Time to check how it all works
-* Launch appium in Terminal #1
+* Launch appium (Terminal "appium" or via Appium Desktop)
 * Launch Android Studio
 * Launch Virtual Android device
 * Launch test in Terminal #2
 
 ### Launch command:
+Input correct path
 ```
-PLATFORM_NAME="android" APPIUM_VERSION="1.7.2" NAME="MyReaction" PLATFORM_VERSION="4.4" DEVICE="Android Emulator" APP="/Developing/Android/SignedApp/MyReaction.apk" mvn clean install
+APP="/Users/{user}/Documents/GitHub/NTD2018-appium/app/MyReaction.apk" mvn clean test
 ```
+## Inspecting Elements with Appium inspector (Appium Desktop app)
+
+First launch, when App is not istalled:
+Desired Capabilities
+* deviceName - Android Emulator
+* platformName - Android
+* app - app file path
+* automationName - UiAutomator2
+* noReset - True
+
+Launching when app is installed:
+Add capability:
+* appWaitActivity - com.denyszaiats.myreactions.StartActivity
 
 ### Error debubging:
 Lock/Unlock issue:
-* Uninstall Unlock app could work.
-App not found:
-Add a path to HomePageTest
+* Uninstall "Unlock" app could work.
+If path to app does not work - Add a path to HomePageTest
 * capabilities.setCapability("app", new File("/Users/ktriebstok/NTD2018-appium/app/MyReaction.apk").getAbsolutePath());
+Optional Test launch command: 
+* PLATFORM_NAME="android" APPIUM_VERSION="1.7.2" NAME="MyReaction" PLATFORM_VERSION="4.4" DEVICE="Android Emulator" APP="/Developing/Android/SignedApp/MyReaction.apk" mvn clean install
