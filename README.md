@@ -20,8 +20,16 @@ APP="/Users/{user}/Documents/GitHub/NTD2018-appium/app/MyReaction.apk" mvn clean
 * TL;DR guide would be:  
  * Install npm + nodejs + appium
  * Download jdk and set JAVA_HOME environment variable to jdk path
- * Download and install android sdk (which means android studio) and set ANDROID_HOME variable to android sdk path (guess it will be shown when installing android studio)
- * Open android sdk and install some packages for api level >= 23
+ * Install Android Studios, set ANDROID_HOME 
+  * https://www.360logica.com/blog/how-to-set-path-environmental-variable-for-sdk-in-windows/
+ * Install Android SDK - Android 6, API level 23
+ * Create virtual device (Android Studio - Tools - AVD Manager - Android 6 API 23)
+
+Launch command:
+```
+set APP="C:\Users\olive\Documents\GitHub\NTD2018-appium\app\MyReaction.
+apk" & mvn clean install
+```
 
 ## Detailed guide for Mac:
 
