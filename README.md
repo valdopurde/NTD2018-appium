@@ -13,8 +13,16 @@
 ```
 APP="/Users/{user}/Documents/GitHub/NTD2018-appium/app/MyReaction.apk" mvn clean test
 ```
+# Windown Android Testing setup
 
-## Detailed guide:
+* Nice guide here http://appium.io/docs/en/drivers/android-uiautomator2/
+* TL;DR guide would be:  
+ * Install npm + nodejs + appium
+ * Download jdk and set JAVA_HOME environment variable to jdk path
+ * Download and install android sdk (which means android studio) and set ANDROID_HOME variable to android sdk path (guess it will be shown when installing android studio)
+ * Open android sdk and install some packages for api level >= 24
+
+## Detailed guide for Mac:
 
 ### Install command line tool
 ```
