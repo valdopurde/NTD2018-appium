@@ -15,7 +15,6 @@ import org.openqa.selenium.Point;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
-import java.io.File;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.Map;
@@ -30,7 +29,7 @@ public class HomePageTest {
     private DriverUtils driverUtils;
     private final static int CLICKS = 100;
     private ResponsiveUIValidator uiValidator;
-    private SoftAssertions softAssertions;
+    private SoftAssertions softly;
 
     @Before
     public void setUp() throws MalformedURLException {
@@ -38,12 +37,13 @@ public class HomePageTest {
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability("platform", "Android");
         capabilities.setCapability("version", "6.0");
+        // capabilities.setCapability("automationName", "UiAutomator2");
         capabilities.setCapability("app", env.get("APP"));
         capabilities.setCapability("deviceName", "emulator-5554"); // adb devices
         driver = new AndroidDriver(new URL("http://0.0.0.0:4723/wd/hub"), capabilities);
         driverUtils = new DriverUtils(driver);
         uiValidator = new ResponsiveUIValidator(driver);
-        softAssertions = new SoftAssertions();
+        softly = new SoftAssertions();
     }
 
     @Test
@@ -55,7 +55,7 @@ public class HomePageTest {
                 .hasEqualSizeAs(driver.findElement(By.id(packageName + ":id/imageLangEn")), "UA flag")
                 .validate();
 
-        softAssertions.assertThat(isEnFlagAligned).overridingErrorMessage("En flag is aligned properly");
+        softly.assertThat(isEnFlagAligned).overridingErrorMessage("En flag is aligned properly");
         driver.findElement(By.id(packageName + ":id/imageLangEn")).click();
         driver.findElement(By.id(packageName + ":id/skip_login_button")).click();
         acceptModal();
@@ -63,10 +63,15 @@ public class HomePageTest {
         openNavigationDrawer();
         openNavigationDrawer();
         openMenu("Help");
-        softAssertions.assertThat(driverUtils.findElementVertically(DriverUtils.Strategy.XPATH, "//android.view.View[@content-desc='Home page']", 10) != null);
-        softAssertions.assertThat(driverUtils.findElementVertically(DriverUtils.Strategy.XPATH, "//android.view.View[@content-desc='Colors memorising']", 10) != null);
-        softAssertions.assertThat(driverUtils.findElementVertically(DriverUtils.Strategy.XPATH, "//android.view.View[@content-desc='Crazy Fingers']", 10) != null);
-        softAssertions.assertThat(driverUtils.findElementVertically(DriverUtils.Strategy.XPATH, "//android.view.View[@content-desc='Colors in the Fog']", 10) != null);
+        softly.assertThat(driverUtils.findElementVertically(DriverUtils.Strategy.XPATH, "//android.view.View[@content-desc='Home page']", 10))
+                .isNotNull()
+                .overridingErrorMessage("Homepage not found");
+        softly.assertThat(driverUtils.findElementVertically(DriverUtils.Strategy.XPATH, "//android.view.View[@content-desc='Colors memorising']", 10))
+                .isNotNull();
+        softly.assertThat(driverUtils.findElementVertically(DriverUtils.Strategy.XPATH, "//android.view.View[@content-desc='Crazy Fingers']", 10))
+                .isNotNull();
+        softly.assertThat(driverUtils.findElementVertically(DriverUtils.Strategy.XPATH, "//android.view.View[@content-desc='Colors in the Fog']", 10))
+                .isNotNull();
         acceptModal();
         openMenu("Crazy Fingers");
         acceptModal();
@@ -76,14 +81,15 @@ public class HomePageTest {
         openMenu("Home");
         acceptModal();
         chooseHandAndFingerAndClickShowResults(Hand.RIGHT, Finger.INDEX);
-        uiValidator.generateReport("Report");
-        WebElement labelResult = driverUtils.findElement(DriverUtils.Strategy.XPATH_NAME, "Max clicks per 10 seconds:" + CLICKS);
-        softAssertions.assertThat(labelResult != null && labelResult.isDisplayed()).overridingErrorMessage("The result is displayed correctly");
+        // uiValidator.generateReport("Report");
+        softly.assertThat(driverUtils.findElement(DriverUtils.Strategy.XPATH, "//android.widget.TextView[contains(@text,'Max clicks per 10 seconds')]"))
+                .isNotNull()
+                .overridingErrorMessage("Max clicks not found");
     }
 
     @After
     public void tearDown() {
-        softAssertions.assertAll();
+        softly.assertAll();
 
         if (driver != null) {
             driver.quit();
@@ -147,7 +153,7 @@ public class HomePageTest {
                 .isCenteredOnPageVertically()
                 .validate();
 
-        softAssertions.assertThat(startButtonResult).overridingErrorMessage("Start Button is aligned properly");
+        softly.assertThat(startButtonResult).overridingErrorMessage("Start Button is aligned properly");
         driverUtils.findElement(DriverUtils.Strategy.ID, packageName + ":id/startButton").click();
         WebElement tapButton = driverUtils.findElement(DriverUtils.Strategy.ID, packageName + ":id/imageTapButton");
 
@@ -158,8 +164,8 @@ public class HomePageTest {
                 .hasWidth(Condition.between(300).and(400)) // Will be failed
                 .validate();
 
-        softAssertions.assertThat(startButtonResult).overridingErrorMessage("Start Button is aligned properly");
-        softAssertions.assertThat(tapButtonResult).overridingErrorMessage("Tap Button is aligned properly");
+        softly.assertThat(startButtonResult).overridingErrorMessage("Start Button is aligned properly");
+        softly.assertThat(tapButtonResult).overridingErrorMessage("Tap Button is aligned properly");
         Point location =  tapButton.getLocation();
         Dimension size =  tapButton.getSize();
 
