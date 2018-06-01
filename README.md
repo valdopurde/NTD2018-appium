@@ -9,21 +9,24 @@
 * Create virtual device (Android Studio - Tools - AVD Manager - Android 6 API 23)
 * Install Maven
 * Clone Test repository https://github.com/valdopurde/NTD2018-appium
-* Launch appium
+* Launch appium 1.7
 * Launch test
 ```
 APP="/Users/{user}/Documents/GitHub/NTD2018-appium/app/MyReaction.apk" mvn clean test
 ```
 # Windows Android Testing setup
 
-* Nice guide here http://appium.io/docs/en/drivers/android-uiautomator2/
-* TL;DR guide would be:  
- * Install npm + nodejs + appium
- * Download jdk and set JAVA_HOME environment variable to jdk path
- * Install Android Studios, set ANDROID_HOME 
-  * https://www.360logica.com/blog/how-to-set-path-environmental-variable-for-sdk-in-windows/
- * Install Android SDK - Android 6, API level 23
- * Create virtual device (Android Studio - Tools - AVD Manager - Android 6 API 23)
+* Nice guide here http://appium.io/docs/en/drivers/android-uiautomator2/ TL;DR guide would be:  
+* Install npm + nodejs
+* Install Appium Desktop app 1.5! (Do not download the latest v1.6.1, due to running Appium 1.8)
+* Download jdk and set JAVA_HOME environment variable to jdk path
+* Install Android Studios, set ANDROID_HOME 
+ * https://www.360logica.com/blog/how-to-set-path-environmental-variable-for-sdk-in-windows/
+* Install Android SDK - Android 6, API level 23
+* Create virtual device (Android Studio - Tools - AVD Manager - Android 6 API 23)
+* Install Maven
+* Clone Test repository https://github.com/valdopurde/NTD2018-appium
+* Launch appium 1.7
 
 If all the steps are done, lets see if it works:
 Launch command (!please note that there is NO space after the apk and before &):
