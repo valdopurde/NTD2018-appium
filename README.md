@@ -14,7 +14,7 @@
 ```
 APP="/Users/{user}/Documents/GitHub/NTD2018-appium/app/MyReaction.apk" mvn clean test
 ```
-# Windown Android Testing setup
+# Windows Android Testing setup
 
 * Nice guide here http://appium.io/docs/en/drivers/android-uiautomator2/
 * TL;DR guide would be:  
