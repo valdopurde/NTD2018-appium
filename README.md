@@ -25,10 +25,11 @@ APP="/Users/{user}/Documents/GitHub/NTD2018-appium/app/MyReaction.apk" mvn clean
  * Install Android SDK - Android 6, API level 23
  * Create virtual device (Android Studio - Tools - AVD Manager - Android 6 API 23)
 
-Launch command:
+If all the steps are done, lets see if it works:
+Launch command (!please note that there is NO space after the apk and before &):
 ```
-set APP="C:\Users\olive\Documents\GitHub\NTD2018-appium\app\MyReaction.
-apk" & mvn clean install
+set APP=C:\Users\*user_name*\Documents\GitHub\NTD2018-appium\app\MyReaction.
+apk& mvn clean install
 ```
 
 ## Detailed guide for Mac:
