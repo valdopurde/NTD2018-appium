@@ -1,3 +1,5 @@
+# ! Completing this setup takes approximately 2 hours !
+
 # Mac Android Testing setup
 
 * Install Command line tools, Homebrew, Git
@@ -6,6 +8,7 @@
 * Install Java and set JAVA_HOME
 * Install Android Studios, set ANDROID_HOME
 * Install Android SDK - Android 6, API level 23
+* Install Intellij IDEA + Configure java SDK
 * Create virtual device (Android Studio - Tools - AVD Manager - Android 6 API 23)
 * Install Maven
 * Clone Test repository https://github.com/valdopurde/NTD2018-appium
@@ -20,15 +23,16 @@ APP="/Users/{user}/Documents/GitHub/NTD2018-appium/app/MyReaction.apk" mvn clean
 * Install npm + nodejs
 * Install Appium Desktop app 1.5! (Do not download the latest v1.6.1, due to running Appium 1.8)
 * Download jdk and set JAVA_HOME environment variable to jdk path
-* Install Android Studios, set ANDROID_HOME 
- * https://www.360logica.com/blog/how-to-set-path-environmental-variable-for-sdk-in-windows/
+* Install Android Studios + set ANDROID_HOME; 
+  Guide:https://www.360logica.com/blog/how-to-set-path-environmental-variable-for-sdk-in-windows/
 * Install Android SDK - Android 6, API level 23
+* Install Intellij IDEA + Configure java SDK
 * Create virtual device (Android Studio - Tools - AVD Manager - Android 6 API 23)
 * Install Maven
 * Clone Test repository https://github.com/valdopurde/NTD2018-appium
 * Launch appium 1.7
 
-If all the steps are done, lets see if it works:
+Lets see if it works:
 Launch command (!please note that there is NO space after the apk and before &):
 ```
 set APP=C:\Users\*user_name*\Documents\GitHub\NTD2018-appium\app\MyReaction.
@@ -58,7 +62,6 @@ brew install node
 ```
 ### Install Java
 ```
-brew update
 brew tap caskroom/versions
 brew cask install java8
 ```
@@ -72,6 +75,15 @@ https://github.com/appium/appium-desktop/releases
 ### Install text editor (example: atom)
 ```
 brew cask install atom
+```
+### Install Intellij IDEA
+```
+brew cask install caskroom/cask/intellij-idea-ce
+```
+### Configure java SDK
+* input the following to see the java_home location:
+```
+echo $JAVA_HOME
 ```
 ### Set JAVA_HOME
 atom .profile
@@ -111,11 +123,19 @@ To the ".profile" file add:
 ```
 git clone https://github.com/valdopurde/NTD2018-appium
 ```
-Time to check how it all works
+
+### Open project in IntelliJ
+* File open "NTD2018-appium" project
+
+Navigation Tip:
+* To navigate shortcut: Command (⌘) + click  
+* To navigate back - Navigate - Back
+
+### Time to check how it all works
 * Launch appium (Terminal "appium" or via Appium Desktop)
 * Launch Android Studio
 * Launch Virtual Android device
-* Launch test in Terminal #2
+* Launch test
 
 ### Launch command:
 Input correct path
@@ -124,7 +144,7 @@ APP="/Users/{user}/Documents/GitHub/NTD2018-appium/app/MyReaction.apk" mvn clean
 ```
 ## Inspecting Elements with Appium inspector (Appium Desktop app)
 
-First launch, when App is not istalled:
+#### First launch, when App is not istalled:
 Desired Capabilities
 * deviceName - Android Emulator
 * platformName - Android
@@ -132,8 +152,8 @@ Desired Capabilities
 * automationName - UiAutomator2
 * noReset - True
 
-Launching when app is installed:
-Add capability:
+#### Launching when app is installed:
+Add additional capability:
 * appWaitActivity - com.denyszaiats.myreactions.StartActivity
 
 ### Error debubging:
