@@ -1,6 +1,6 @@
 # ! Completing this setup takes approximately 2 hours !
 
-# Mac Android Testing setup
+# Mac Android Testing setup (Detailed guide from line 42)
 
 * Install Command line tools, Homebrew, Git
 * Install npm + nodejs + appium 1.7.x (Do not upgrade to 1.8)
@@ -20,9 +20,13 @@ APP="/Users/{user}/Documents/GitHub/NTD2018-appium/app/MyReaction.apk" mvn clean
 # Windows Android Testing setup
 
 * Nice guide here http://appium.io/docs/en/drivers/android-uiautomator2/ TL;DR guide would be:  
-* Install npm + nodejs
+* Install npm + nodejs. Guide: http://blog.teamtreehouse.com/install-node-js-npm-windows
 * Install Appium Desktop app 1.5! (Do not download the latest v1.6.1, due to running Appium 1.8)
 * Download jdk and set JAVA_HOME environment variable to jdk path
+* Check JAVA_HOME location: 
+```
+echo %JAVA_HOME%
+```
 * Install Android Studios + set ANDROID_HOME; 
   Guide:https://www.360logica.com/blog/how-to-set-path-environmental-variable-for-sdk-in-windows/
 * Install Android SDK - Android 6, API level 23
@@ -31,15 +35,15 @@ APP="/Users/{user}/Documents/GitHub/NTD2018-appium/app/MyReaction.apk" mvn clean
 * Install Maven
 * Clone Test repository https://github.com/valdopurde/NTD2018-appium
 * Launch appium 1.7
-
-Lets see if it works:
+* Type "env" into cmd and see that Java_home and Android_home are set
+* Lets see if it works:
 Launch command (!please note that there is NO space after the apk and before &):
 ```
 set APP=C:\Users\*user_name*\Documents\GitHub\NTD2018-appium\app\MyReaction.
 apk& mvn clean install
 ```
 
-## Detailed guide for Mac:
+# Detailed guide for Mac:
 
 ### Install command line tool
 ```
@@ -144,7 +148,7 @@ APP="/Users/{user}/Documents/GitHub/NTD2018-appium/app/MyReaction.apk" mvn clean
 ```
 ## Inspecting Elements with Appium inspector (Appium Desktop app)
 
-#### First launch, when App is not istalled:
+### First launch, when App is not istalled:
 Desired Capabilities
 * deviceName - Android Emulator
 * platformName - Android
@@ -152,11 +156,11 @@ Desired Capabilities
 * automationName - UiAutomator2
 * noReset - True
 
-#### Launching when app is installed:
+### Launching when app is installed:
 Add additional capability:
 * appWaitActivity - com.denyszaiats.myreactions.StartActivity
 
-### Error debubging:
+## Error debubging:
 Lock/Unlock issue:
 * Uninstall "Unlock" app could work.
 If path to app does not work - Add a path to HomePageTest
