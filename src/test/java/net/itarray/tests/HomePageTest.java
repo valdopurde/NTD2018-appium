@@ -37,6 +37,7 @@ public class HomePageTest {
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability("platform", "Android");
         capabilities.setCapability("version", "6.0");
+        // capabilities.setCapability("fullReset", "true");
         // capabilities.setCapability("automationName", "UiAutomator2");
         capabilities.setCapability("app", env.get("APP"));
         capabilities.setCapability("deviceName", "emulator-5554"); // adb devices
@@ -85,6 +86,21 @@ public class HomePageTest {
         softly.assertThat(driverUtils.findElement(DriverUtils.Strategy.XPATH, "//android.widget.TextView[contains(@text,'Max clicks per 10 seconds')]"))
                 .isNotNull()
                 .overridingErrorMessage("Max clicks not found");
+    }
+
+    // @Test
+    public void testPageContent() {
+        // click on Eng flag
+        // click on Skip Login
+
+        // Validate all texts in popup
+
+        // press OK
+
+        // Close menu
+        // Open menu
+
+        // Validate all items in menu
     }
 
     @After
