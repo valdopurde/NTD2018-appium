@@ -5,6 +5,7 @@
 * Install Command line tools, Homebrew, Git
 * Install npm + nodejs + appium 1.7.x (Do not upgrade to 1.8)
 * Install Appium Desktop app 1.5! (Do not download the latest v1.6.1, due to running Appium 1.8)
+* Install text editor (example: atom)
 * Install Java and set JAVA_HOME
 * Install Android Studios, set ANDROID_HOME
 * Install Android SDK - Android 6, API level 23
@@ -22,11 +23,9 @@ APP="/Users/{user}/Documents/GitHub/NTD2018-appium/app/MyReaction.apk" mvn clean
 * Nice guide here http://appium.io/docs/en/drivers/android-uiautomator2/ TL;DR guide would be:  
 * Install npm + nodejs. Guide: http://blog.teamtreehouse.com/install-node-js-npm-windows
 * Install Appium Desktop app 1.5! (Do not download the latest v1.6.1, due to running Appium 1.8)
+* Optional Install Text editor - Atom for example: https://atom.io/
 * Download jdk and set JAVA_HOME environment variable to jdk path
-* Check JAVA_HOME location: 
-```
-echo %JAVA_HOME%
-```
+* Check JAVA_HOME location: $ echo %JAVA_HOME%
 * Install Android Studios + set ANDROID_HOME; 
   Guide:https://www.360logica.com/blog/how-to-set-path-environmental-variable-for-sdk-in-windows/
 * Install Android SDK - Android 6, API level 23
