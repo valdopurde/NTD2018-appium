@@ -149,11 +149,11 @@ APP="/Users/{user}/Documents/GitHub/NTD2018-appium/app/MyReaction.apk" mvn clean
 
 ### First launch, when App is not istalled:
 Desired Capabilities
-* deviceName - Android Emulator
-* platformName - Android
-* app - app file path
-* automationName - UiAutomator2
-* noReset - True
+* deviceName - text - Android Emulator
+* platformName - text - Android
+* app - filepatch - "app file path"
+* automationName - text - UiAutomator2
+* noReset - boolean - True
 
 ### Launching when app is installed:
 Add additional capability:
