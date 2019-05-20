@@ -93,6 +93,12 @@ atom .profile
 To the .profile file add:
 export JAVA_HOME=/Library/Java/Home;
 
+atom .bash_profile
+To the .bash_profile file add:
+
+JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk-11.0.2.jdk/Contents/Home/
+export JAVA_HOME;
+
 Check by typing:
 ```
 $JAVA_HOME/bin/java -version
