@@ -103,6 +103,26 @@ Check by typing:
 ```
 $JAVA_HOME/bin/java -version
 ```
+
+### Set Java SDK in IntelliJ
+1.
+Open Intellij project
+Right click on the projec in the right pane menu
+Select "Open Module Settings"
+Select Modules
+Select project
+Select dependencies
+Change Module SDK to the right java jdk location
+
+? 2. Select Intellij "Preferences"
+Select "Build, Execution, Deploy -> Build tools -> Maven -> Importing"
+Change "JDK for importer" to correct value
+
+? 3. Select Intellij "Preferences"
+elect "Build, Execution, Deploy -> Compiler -> Java Compiler
+Change project bytecode version to required version
+Change "Target bytecode version" behind the needed project, under the "per-module bytecode version list.
+
 ### Install Android Studio
 * Install all tools & SDK's recommended by the Studio.
 * Open Android Studio SDK manager
